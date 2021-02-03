@@ -1,0 +1,48 @@
+
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="proveedor">
+  <div class="row">
+    <div class="col bg-info font-weight-bold">denominacion</div>
+    <div class="col-9 bg-info">{{proveedor.denominacion}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">contacto</div>
+    <div class="col-9 bg-info">{{proveedor.contacto}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">celular</div>
+    <div class="col-9 bg-info">{{proveedor.celular}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">telefono</div>
+    <div class="col-9 bg-info">{{proveedor.telefono}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">direccion</div>
+    <div class="col-9 bg-info">{{proveedor.direccion}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">cuit</div>
+    <div class="col-9 bg-info">{{proveedor.cuit}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">provincia</div>
+    <div class="col-9 bg-info">{{proveedor.provincia}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">ciudad</div>
+    <div class="col-9 bg-info">{{proveedor.ciudad}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">cp</div>
+    <div class="col-9 bg-info">{{proveedor.cp}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">actividad</div>
+    <div class="col-9 bg-info">{{proveedor.actividad}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">ci</div>
+    <div class="col-9 bg-info">{{proveedor.ci}}</div>
+  </div>
+  <button class="btn btn-danger w-100" routerLink="/admin/proveedores">Volver</button>
+</div>

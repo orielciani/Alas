@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
+  <div class="row">
+    <div class="col">
+      <label for="role">Nombre:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Nombre"
+        formControlName="nombre"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Email:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Correo electrónico"
+        formControlName="email"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Role:</label>
+      <select
+        class="custom-select form-control form-control-lg"
+        id="role"
+        formControlName="role"
+      >
+        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
+        <option value="USER_ROLE">USER_ROLE</option>
+        >
+      </select>
+    </div>
+    <div class="col">
+      <label for="role">Contraseña:</label>
+      <input
+        class="form-control"
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
+        Volver
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary w-100" type="submit">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>

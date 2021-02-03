@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card animate__animated animate__fadeIn">
+    <div class="card-body">
+      <img
+        class="img-fluid rounded mx-auto d-block"
+        src="http://www.alascad.com.ar/wp-content/uploads/2018/10/logo-dark.png"
+      />
+      <h5 class="card-title h3 mb-3 font-weight-normal text-center">
+        Inicie sesion:
+      </h5>
+      <form [formGroup]="form" (ngSubmit)="login()">
+        <label>Email:</label>
+        <input
+          class="form-control"
+          type="email"
+          placeholder="Correo electrónico"
+          formControlName="email"
+        />
+        <label>Contraseña:</label>
+        <input
+          class="form-control"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-danger w-100" type="button" routerLink="/home">
+              Volver
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-primary w-100" type="submit">
+              Ingresar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

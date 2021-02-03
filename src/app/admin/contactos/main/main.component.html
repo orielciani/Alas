@@ -1,0 +1,48 @@
+<div class="container-fluid animate__animated animate__fadeIn">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Buscar contacto</h5>
+      <input class="form-control" (keyup)="buscar(termino.value)" type="search" placeholder="Nombre, dni, localidad" #termino>
+    </div>
+  </div>
+  <div class="card bg-warning text-center" *ngIf="cargando">
+    <div class="card-body">
+      <h5 class="card-title text-center"><i class="fas fa-sync fa-spin"></i> Cargando...</h5>
+      <p class="card-text">Si ve este mensaje es porque se esta descargando los datos, si la sigue viendo despues de un tiempo porfavor reinicie la pagina.</p>
+    </div>
+  </div>
+      <p class="bg-info text-center">
+        Total de contactos: {{totalRegistros}}
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a class="btn btn-primary e-md-2" routerLink="crear">Crear Usuario nuevo</a>
+
+      </div>
+  <table class="table" *ngIf="!cargando">
+    <thead>
+      <tr class="table-danger">
+        <th>Nombre</th>
+        <th>Email</th>
+        <th width="20%" class="text-right">Role</th>
+        <th class="text-right">Botones
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of contactos">
+        <td>{{data.nombre}}</td>
+        <td>{{data.email}}</td>
+        <td class="text-right"  width="20%">{{data.role}}</td>
+        <td width="15%" class="text-right">
+            <a class="btn botones btn-success" [routerLink]="['ver/' + (data._id || '')]"><i class="far fa-eye"></i></a>
+            <a class="btn botones btn-primary" [routerLink]="['editar/' + (data._id || '')]"><i class="fas fa-pencil-alt"></i></a>
+            <button class="btn botones btn-danger" (click)="eliminar(data)"><i class="fas fa-times-circle"></i></button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row container-fluid">
+    <div class="col"><button (click)="cambiarDesde(-5)" class="btn btn-block btn-danger">Anterior</button></div>
+    <div class="col"><button (click)="cambiarDesde(+5)" class="btn btn-block btn-success">Siguiente</button></div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="contacto">
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Nombre</div>
+    <div class="col-10 bg-info">{{contacto.nombre}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Email</div>
+    <div class="col-10 bg-info">{{contacto.correo}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Telefono</div>
+    <div class="col-10 bg-info">{{contacto.telefono}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Celular</div>
+    <div class="col-10 bg-info">{{contacto.celular}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Institucion</div>
+    <div class="col-10 bg-info">{{contacto.institucion}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Horario</div>
+    <div class="col-10 bg-info">{{contacto.horario}}</div>
+  </div>
+  <button class="btn btn-danger w-100" routerLink="/admin/contactos">Volver</button>
+</div>

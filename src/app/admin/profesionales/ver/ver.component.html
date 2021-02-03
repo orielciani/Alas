@@ -1,0 +1,118 @@
+
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="profesional">
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Nombre</div>
+    <div class="col-10 bg-info">{{profesional.nombre}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">DNI</div>
+    <div class="col-10 bg-info">{{profesional.dni}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Direccion</div>
+    <div class="col-10 bg-info">{{profesional.direccion}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Provincia</div>
+    <div class="col-10 bg-info">{{profesional.provincia}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Ciudad</div>
+    <div class="col-10 bg-info">{{profesional.ciudad}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Nacimiento</div>
+    <div class="col-10 bg-info">{{profesional.nacimiento}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Telefono</div>
+    <div class="col-10 bg-info">{{profesional.telefono}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Celular</div>
+    <div class="col-10 bg-info">{{profesional.celular}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Email</div>
+    <div class="col-10 bg-info">{{profesional.correo}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">CUIT</div>
+    <div class="col-10 bg-info">{{profesional.cuit}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Ingresos Brutos</div>
+    <div class="col-10 bg-info">{{profesional.ib}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">CBU</div>
+    <div class="col-10 bg-info">{{profesional.cbu}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Profesion</div>
+    <div class="col-10 bg-info">{{profesional.profesion}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Taller</div>
+    <div class="col-10 bg-info">{{profesional.taller}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Alta</div>
+    <div class="col-10 bg-info">{{profesional.alta}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Baja</div>
+    <div class="col-10 bg-info">{{profesional.baja}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Seguro</div>
+    <div class="col-10 bg-info">{{profesional.seguro}}</div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Lunes</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Martes</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Miercoles</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Jueves</th>
+        <th scope="col">Horas</th>
+        <th scope="col">Viernes</th>
+        <th scope="col">Horas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Actividad</th>
+        <td>{{profesional.asistencia[0].lunes[0].actividadLunes}}</td>
+        <td>{{profesional.asistencia[0].lunes[0].inicioLunes}} a {{profesional.asistencia[0].lunes[0].finalLunes}}</td>
+        <td>{{profesional.asistencia[0].martes[0].actividadMartes}}</td>
+        <td>{{profesional.asistencia[0].martes[0].inicioMartes}} a {{profesional.asistencia[0].martes[0].finalMartes}}</td>
+        <td>{{profesional.asistencia[0].miercoles[0].actividadMiercoles}}</td>
+        <td>{{profesional.asistencia[0].miercoles[0].inicioMiercoles}} a {{profesional.asistencia[0].miercoles[0].finalMiercoles}}</td>
+        <td>{{profesional.asistencia[0].jueves[0].actividadJueves}}</td>
+        <td>{{profesional.asistencia[0].jueves[0].inicioJueves}} a {{profesional.asistencia[0].jueves[0].finalJueves}}</td>
+        <td>{{profesional.asistencia[0].viernes[0].actividadViernes}}</td>
+        <td>{{profesional.asistencia[0].viernes[0].inicioViernes}} a {{profesional.asistencia[0].viernes[0].finalViernes}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Horas</th>
+        <td></td>
+        <td>{{lunesHoras}}</td>
+        <td></td>
+        <td>{{martesHoras}}</td>
+        <td></td>
+        <td>{{miercolesHoras}}</td>
+        <td></td>
+        <td>{{juevesHoras}}</td>
+        <td></td>
+        <td>{{viernesHoras}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container bg-success">Total de horas semanales: {{totalHorasSemanales}} </div>
+  <button class="btn btn-danger w-100" routerLink="/admin/profesionales">Volver</button>
+</div>

@@ -1,0 +1,135 @@
+<form *ngIf="proveedor" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
+  <div class="row">
+    <div class="col">
+      <label for="role">Denominacion:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Denominacion"
+        formControlName="denominacion"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Contacto:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Contacto"
+        formControlName="contacto"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Celular:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Celular"
+        formControlName="celular"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Telefono:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Telefono"
+        formControlName="telefono"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Direccion:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Direccion"
+        formControlName="direccion"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Cuit:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Cuit"
+        formControlName="cuit"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Provincia:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Provincia"
+        formControlName="provincia"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Ciudad:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Ciudad"
+        formControlName="ciudad"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Codigo Postal:</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Codigo postal"
+        formControlName="cp"
+      />
+    </div>
+    <div class="col">
+      <label for="role">ci:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="ci"
+        formControlName="ci"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label for="role">Actividad:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Actividad"
+        formControlName="actividad"
+      />
+    </div>
+    <div class="col">
+      <label for="role">Correo:</label>
+      <input
+        class="form-control"
+        type="email"
+        placeholder="Email"
+        formControlName="correo"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-danger btn-block" type="button" routerLink="/admin/proveedores">
+        Volver
+      </button>
+    </div>
+    <div class="col">
+      <button class="btn btn-primary btn-block" type="submit">
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>

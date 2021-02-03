@@ -1,0 +1,16 @@
+<div class="cointainer">
+  <div class="row bg-secondary">
+    <div class="col-2 navbar text-warning">
+      Alas Base de Datos
+    </div>
+    <div class="col-8">
+        <input class="form-control" #input (keyup.enter)="buscar(input.value)" type="search" placeholder="Buscar todo">
+    </div>
+    <div class="col">
+      <button class="btn btn-success" (click)="buscar(input.value)">Buscar</button>
+    </div>
+    <div class="col">
+      <button class="btn btn-block btn-danger" (click)="usuarioservice.logout()" type="submit">Salir</button>
+    </div>
+  </div>
+</div>

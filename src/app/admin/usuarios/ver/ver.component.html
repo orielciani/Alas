@@ -1,0 +1,20 @@
+
+<div class="container-fluid animate__animated animate__fadeIn" *ngIf="usuario">
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Nombre</div>
+    <div class="col-10 bg-info">{{usuario.nombre}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Email</div>
+    <div class="col-10 bg-info">{{usuario.email}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">Role</div>
+    <div class="col-10 bg-info">{{usuario.role}}</div>
+  </div>
+  <div class="row">
+    <div class="col bg-info font-weight-bold">ID</div>
+    <div class="col-10 bg-info">{{usuario._id}}</div>
+  </div>
+  <button class="btn btn-danger w-100" routerLink="/admin/usuarios">Volver</button>
+</div>

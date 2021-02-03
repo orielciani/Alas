@@ -1,0 +1,15 @@
+<div class="container-fluid animate__animated animate__fadeIn">
+<app-admin-navbar></app-admin-navbar>
+<div class="row">
+  <div class="col-2 bg-secondary">
+    <div class="list-group" *ngFor="let menu of menus">
+      <a class="list-group-item list-group-item-action" [routerLink]="menu.route" routerLinkActive="active" >
+        {{menu.nombre}}
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <router-outlet></router-outlet>
+</div>
+</div>
+</div>

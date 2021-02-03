@@ -1,0 +1,251 @@
+<div class="cointainer-fluid animate__animated animate__fadeIn">
+
+
+  <div class="container-fluid" *ngIf="concurrentes.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Concurrentes</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of concurrentes">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="contactos.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Contactos</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of contactos">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="efectores.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Efectores de Salud</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of efectores">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="instituciones.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Instituciones</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of instituciones">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="obrasSociales.length !== 0">
+    <div class="card border-info">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Obras Sociales</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of obrasSociales">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="profesionales.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Profesionales</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of profesionales">
+          <td>{{data.nombre}}</td>
+          <td>{{data.correo}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="proveedores.length !== 0">
+    <div class="card border-success">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title text-success">Proveedores</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th width="20%" class="text-right">Telefono</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of proveedores">
+          <td>{{data.denominacion}}</td>
+          <td>{{data.contacto}}</td>
+          <td class="text-right" width="20%">{{data.telefono}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
+              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="container-fluid" *ngIf="usuarios.length !== 0 && admin">
+    <div class="card border-primary">
+      <img class="card-img-top">
+      <div class="card-body">
+        <h4 class="card-title font-weight-bold text-primary">Usuarios</h4>
+      </div>
+
+      <table class="table">
+       <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Email</th>
+          <th class="text-right">Botones
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of usuarios">
+          <td>{{data.nombre}}</td>
+          <td>{{data.email}}</td>
+          <td width="15%" class="text-right">
+              <a class="btn botones btn-success" [routerLink]="['/admin/usuarios/ver/' + (data._id || '')]"><i class="far fa-eye"></i></a>
+              <a *ngIf='admin' class="btn botones btn-primary" [routerLink]="['/admin/usuarios/editar/' + (data._id || '')]"><i class="fas fa-pencil-alt"></i></a>
+        </td>
+        </tr>
+       </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

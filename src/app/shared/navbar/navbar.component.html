@@ -1,0 +1,15 @@
+<div class="row animate__animated animate__fadeIn bg-warning">
+  <div class="col-2">
+    <a class="nav-link" routerLink="home"> <img src="http://www.alascad.com.ar/wp-content/uploads/2018/10/logo-dark.png" height="75px"> </a>
+  </div>
+  <div class="col">
+    <ul class="nav nav-pills nav-fill">
+      <li class="nav-item" *ngFor="let menu of menus">
+        <a class="nav-link
+         animate__animated
+          menu
+           font-weight-bold" routerLinkActive="text-white underline agrandar animate__bounceIn"  [routerLink]="menu.route ">{{menu.nombre}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
