@@ -16,5 +16,10 @@
     <div class="col bg-info font-weight-bold">ID</div>
     <div class="col-10 bg-info">{{usuario._id}}</div>
   </div>
+  <div class="row" *ngIf="usuario.img">
+    <div class="col bg-info font-weight-bold">imagen </div>
+    <div class="col-10 bg-info">{{usuario.img}} </div>
+  </div>
+  <img *ngIf="usuario.img" [src]="usuario.img | imagen">
   <button class="btn btn-danger w-100" routerLink="/admin/usuarios">Volver</button>
 </div>

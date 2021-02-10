@@ -1,6 +1,7 @@
-<form *ngIf="this.usuario" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
+<form *ngIf="this.contacto" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
   <div class="row">
     <div class="col">
+      <label>Nombre</label>
       <input
         class="form-control"
         type="text"
@@ -9,34 +10,48 @@
       />
     </div>
     <div class="col">
+      <label>Email</label>
       <input
         class="form-control"
         type="email"
         placeholder="Correo electrónico"
-        formControlName="email"
+        formControlName="correo"
       />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <select class="form-control" formControlName="role">
-        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-        <option selected value="USER_ROLE">USER_ROLE</option>
-        >
-      </select>
-    </div>
-    <div class="col">
+      <label>Celular</label>
       <input
         class="form-control"
-        type="password"
-        placeholder="Contraseña"
-        formControlName="password"
+        type="text"
+        placeholder="Celular"
+        formControlName="celular"
+      />
+    </div>
+    <div class="col">
+      <label>Telefono</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Telefono"
+        formControlName="telefono"
       />
     </div>
   </div>
+  <div class="container">
+    <label>Institucion</label>
+    <input
+          class="form-control"
+          type="text"
+          placeholder="Institucion"
+          formControlName="institucion"
+        />
+
+  </div>
   <div class="row">
     <div class="col">
-      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
+      <button class="btn btn-danger w-100" type="button" routerLink="/admin/contactos">
         Volver
       </button>
     </div>

@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
   <div class="row">
     <div class="col">
-      <label for="role">Nombre:</label>
+      <label>Nombre</label>
       <input
         class="form-control"
         type="text"
@@ -10,42 +10,128 @@
       />
     </div>
     <div class="col">
-      <label for="role">Email:</label>
+      <label>Email</label>
       <input
         class="form-control"
         type="email"
         placeholder="Correo electrónico"
-        formControlName="email"
+        formControlName="correo"
       />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <label for="role">Role:</label>
-      <select
-        class="custom-select form-control form-control-lg"
-        id="role"
-        formControlName="role"
-      >
-        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-        <option value="USER_ROLE">USER_ROLE</option>
-        >
-      </select>
-    </div>
-    <div class="col">
-      <label for="role">Contraseña:</label>
+      <label>Telefono</label>
       <input
         class="form-control"
-        type="password"
-        placeholder="Password"
-        formControlName="password"
+        type="text"
+        placeholder="Telefono"
+        formControlName="telefono"
       />
+    </div>
+    <div class="col">
+      <label>Celular</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Celular"
+        formControlName="celular"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Provincia</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Provincia"
+        formControlName="provincia"
+      />
+    </div>
+    <div class="col">
+      <label>Ciudad</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Ciudad"
+        formControlName="ciudad"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Direccion</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Direccion"
+        formControlName="direccion"
+      />
+    </div>
+    <div class="col">
+      <label>Codigo Postal</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Codigo Postal"
+        formControlName="codpos"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Contacto</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Contacto"
+        formControlName="contacto"
+      />
+    </div>
+    <div class="col">
+      <label>CUit</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="CUIT"
+        formControlName="cuit"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>CI</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="CI"
+        formControlName="ci"
+      />
+    </div>
+    <div class="col">
+      <label>Ingresos Brutos</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Ingresos Brutos"
+        formControlName="ib"
+      />
+    </div>
+    <div class="container-fluid">
+      <label>Otros</label>
+      <input
+          class="form-control"
+          type="text"
+          placeholder="Otros"
+          formControlName="otros"
+        />
     </div>
   </div>
 
   <div class="row">
     <div class="col">
-      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
+      <button class="btn btn-danger w-100" type="button" routerLink="/admin/obras-sociales">
         Volver
       </button>
     </div>

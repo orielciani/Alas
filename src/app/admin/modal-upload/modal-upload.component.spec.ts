@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ObrasSocialesComponent } from './obras-sociales.component';
+import { ModalUploadComponent } from './modal-upload.component';
 
-describe('ObrasSocialesComponent', () => {
-  let component: ObrasSocialesComponent;
-  let fixture: ComponentFixture<ObrasSocialesComponent>;
+describe('ModalUploadComponent', () => {
+  let component: ModalUploadComponent;
+  let fixture: ComponentFixture<ModalUploadComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ObrasSocialesComponent ]
+      declarations: [ ModalUploadComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ObrasSocialesComponent);
+    fixture = TestBed.createComponent(ModalUploadComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

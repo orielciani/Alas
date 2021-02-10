@@ -24,8 +24,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/concurrentes/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -55,8 +55,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/contactos/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -86,8 +86,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/efectores/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -117,8 +117,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/instituciones/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -148,8 +148,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/obras-sociales/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -179,8 +179,8 @@
           <td>{{data.correo}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/profesionales/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>
@@ -210,8 +210,8 @@
           <td>{{data.contacto}}</td>
           <td class="text-right" width="20%">{{data.telefono}}</td>
           <td width="15%" class="text-right">
-              <a class="btn botones btn-success"><i class="far fa-eye"></i></a>
-              <a class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
+              <a class="btn botones btn-success" [routerLink]="['/admin/proveedores/ver/' +data._id]"><i class="far fa-eye"></i></a>
+              <a *ngIf="admin" class="btn botones btn-primary"><i class="fas fa-pencil-alt"></i></a>
         </td>
         </tr>
        </tbody>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { Usuario } from "../../../models/usuario.model";
 import Swal from 'sweetalert2'
+import { EfectoresService } from 'src/app/services/efectores.service';
 
 @Component({
   selector: 'app-crear',
@@ -11,32 +11,87 @@ import Swal from 'sweetalert2'
 })
 export class CrearComponent {
   form: FormGroup;
-  roles: any[] = ['ADMIN_ROLE', 'USER_ROLE']
-  constructor(public usuarioservice: UsuarioService) {
+
+  constructor(public usuarioservice: UsuarioService,
+    public efectoresservice: EfectoresService) {
     this.form = new FormGroup({
-      nombre: new FormControl(),
-      email: new FormControl(),
-      role: new FormControl('USER_ROLE'),
-      password: new FormControl()
+      nombre: new FormControl(""),
+      direccion: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      correo: new FormControl(""),
+      contacto: new FormControl(""),
+      distrito: new FormControl(""),
+      observacion: new FormControl(""),
     });
   }
+  formsQuestions: any = [ {
+      label: 'Nombre',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "nombre"
+    },
+    {
+      label: 'Direccion',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "direccion"
+    },
+    {
+      label: 'Telefono',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "telefono"
+    },
+    {
+      label: 'Celular',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "celular"
+    },
+    {
+      label: 'Email',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "correo"
+    },
+    {
+      label: 'Contacto',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "contacto"
+    },
+    {
+      label: 'Distrito',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "distrito"
+    },
+    {
+      label: 'Observacion',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "observacion"
+    },
+   ]
 
   guardarCambios() {
     this.crearUsuario(this.form.value);
   }
-  crearUsuario(usuario: Usuario) {
-    const user = usuario;
-    this.usuarioservice.crearUsuario(user).subscribe((respuesta: any) => {
+  crearUsuario(efector: any) {
+    const user = efector;
+    this.efectoresservice.agregar(user).subscribe((respuesta: any) => {
       Swal.fire(
         'Exito',
-        'El usuario de nombre ' + respuesta.usuario.nombre + ' se creo con exito',
+        'El efector de salud de nombre ' + respuesta.efectorsalud.nombre + ' se agrego con exito',
         'success'
       )
     }, (error: any) => {
+      console.log(error);
       if ( !error.error.message ) {
         Swal.fire(
           'Error',
-          error.error.error.errors.email.message,
+          'Error',
           'error'
         )
       } else {

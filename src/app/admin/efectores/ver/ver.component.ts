@@ -22,7 +22,6 @@ export class VerComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedroute.snapshot.params['id'];
     this.efectoresservice.cargarUno(id).subscribe((respuesta: any) => {
-      console.log(respuesta);
       this.efector = respuesta.efectorsalud;
     }, (error: any ) => {
       console.log(error);

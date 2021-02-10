@@ -1,6 +1,7 @@
-<form *ngIf="this.usuario" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
+<form *ngIf="this.efector" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
   <div class="row">
     <div class="col">
+      <label>Nombre</label>
       <input
         class="form-control"
         type="text"
@@ -9,6 +10,7 @@
       />
     </div>
     <div class="col">
+      <label>Email</label>
       <input
         class="form-control"
         type="email"
@@ -19,24 +21,56 @@
   </div>
   <div class="row">
     <div class="col">
-      <select class="form-control" formControlName="role">
-        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-        <option selected value="USER_ROLE">USER_ROLE</option>
-        >
-      </select>
-    </div>
-    <div class="col">
+      <label>Telefono</label>
       <input
         class="form-control"
-        type="password"
-        placeholder="Contraseña"
-        formControlName="password"
+        type="text"
+        placeholder="Telefono"
+        formControlName="telefono"
+      />
+    </div>
+    <div class="col">
+      <label>Celular</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Celular"
+        formControlName="celular"
       />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
+      <label>Direccion</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="direccion"
+        formControlName="direccion"
+      />
+    </div>
+    <div class="col">
+      <label>Distrito</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="distrito"
+        formControlName="distrito"
+      />
+    </div>
+  </div>
+  <div class="container-fluid">
+    <label>Observacion</label>
+    <input
+        class="form-control obs"
+        type="text"
+        placeholder="observacion"
+        formControlName="observacion"
+      />
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-danger w-100" type="button" routerLink="/admin/efectores">
         Volver
       </button>
     </div>

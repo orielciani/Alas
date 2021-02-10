@@ -22,16 +22,17 @@ export class MainComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.cargarData();
+    this.admin = this.usuarioservice.admin;
   }
     cargando = true;
+    admin = false;
    desde = 0;
    totalRegistros = 0;
    profesionales: any[] = [];
     cargarData() {
       this.profesionalesservice.cargar(this.desde).subscribe((respuesta: any) => {
-        console.log(respuesta);
         this.profesionales = respuesta.profesionales;
-        this.totalRegistros = respuesta.profesionales.length;
+        this.totalRegistros = respuesta.conteo;
         this.cargando = false;
       });
     }

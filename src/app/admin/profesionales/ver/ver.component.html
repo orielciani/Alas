@@ -5,12 +5,8 @@
     <div class="col-10 bg-info">{{profesional.nombre}}</div>
   </div>
   <div class="row">
-    <div class="col bg-info font-weight-bold">DNI</div>
-    <div class="col-10 bg-info">{{profesional.dni}}</div>
-  </div>
-  <div class="row">
-    <div class="col bg-info font-weight-bold">Direccion</div>
-    <div class="col-10 bg-info">{{profesional.direccion}}</div>
+    <div class="col bg-info font-weight-bold">Nacimiento</div>
+    <div class="col-10 bg-info">{{profesional.nacimiento}}</div>
   </div>
   <div class="row">
     <div class="col bg-info font-weight-bold">Provincia</div>
@@ -21,8 +17,8 @@
     <div class="col-10 bg-info">{{profesional.ciudad}}</div>
   </div>
   <div class="row">
-    <div class="col bg-info font-weight-bold">Nacimiento</div>
-    <div class="col-10 bg-info">{{profesional.nacimiento}}</div>
+    <div class="col bg-info font-weight-bold">Direccion</div>
+    <div class="col-10 bg-info">{{profesional.direccion}}</div>
   </div>
   <div class="row">
     <div class="col bg-info font-weight-bold">Telefono</div>
@@ -51,10 +47,6 @@
   <div class="row">
     <div class="col bg-info font-weight-bold">Profesion</div>
     <div class="col-10 bg-info">{{profesional.profesion}}</div>
-  </div>
-  <div class="row">
-    <div class="col bg-info font-weight-bold">Taller</div>
-    <div class="col-10 bg-info">{{profesional.taller}}</div>
   </div>
   <div class="row">
     <div class="col bg-info font-weight-bold">Alta</div>
@@ -87,16 +79,16 @@
     <tbody>
       <tr>
         <th scope="row">Actividad</th>
-        <td>{{profesional.asistencia[0].lunes[0].actividadLunes}}</td>
-        <td>{{profesional.asistencia[0].lunes[0].inicioLunes}} a {{profesional.asistencia[0].lunes[0].finalLunes}}</td>
-        <td>{{profesional.asistencia[0].martes[0].actividadMartes}}</td>
-        <td>{{profesional.asistencia[0].martes[0].inicioMartes}} a {{profesional.asistencia[0].martes[0].finalMartes}}</td>
-        <td>{{profesional.asistencia[0].miercoles[0].actividadMiercoles}}</td>
-        <td>{{profesional.asistencia[0].miercoles[0].inicioMiercoles}} a {{profesional.asistencia[0].miercoles[0].finalMiercoles}}</td>
-        <td>{{profesional.asistencia[0].jueves[0].actividadJueves}}</td>
-        <td>{{profesional.asistencia[0].jueves[0].inicioJueves}} a {{profesional.asistencia[0].jueves[0].finalJueves}}</td>
-        <td>{{profesional.asistencia[0].viernes[0].actividadViernes}}</td>
-        <td>{{profesional.asistencia[0].viernes[0].inicioViernes}} a {{profesional.asistencia[0].viernes[0].finalViernes}}</td>
+        <td>{{profesional.actividadLunes || ''}}</td>
+        <td>{{profesional.inicioLunes || 0}} a {{profesional.finalLunes || 0}}</td>
+        <td>{{profesional.actividadMartes || ''}}</td>
+        <td>{{profesional.inicioMartes || 0}} a {{profesional.finalMartes || 0}}</td>
+        <td>{{profesional.actividadMiercoles || ''}}</td>
+        <td>{{profesional.inicioMiercoles || 0}} a {{profesional.finalMiercoles || 0}}</td>
+        <td>{{profesional.actividadJueves || ''}}</td>
+        <td>{{profesional.inicioJueves || 0}} a {{profesional.finalJueves || 0}}</td>
+        <td>{{profesional.actividadViernes || ''}}</td>
+        <td>{{profesional.inicioViernes || 0}} a {{profesional.finalViernes || 0}}</td>
       </tr>
       <tr>
         <th scope="row">Horas</th>

@@ -21,16 +21,17 @@ export class MainComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.cargarData();
+    this.admin = this.usuarioservice.admin;
   }
+  admin = false;
     cargando = true;
    desde = 0;
    totalRegistros = 0;
    obrasSociales: any[] = [];
     cargarData() {
       this.obrassocialesservice.cargar(this.desde).subscribe((respuesta: any) => {
-        console.log(respuesta);
         this.obrasSociales = respuesta.obrasSociales;
-        this.totalRegistros = respuesta.obrasSociales.length;
+        this.totalRegistros = respuesta.conteo;
         this.cargando = false;
       });
     }
@@ -39,9 +40,9 @@ export class MainComponent implements OnInit {
         this.cargarData();
         return;
       }
-      let url = SERVER_URL + 'busqueda/db/obrasSociales/' + termino;
+      let url = SERVER_URL + 'busqueda/db/obrassociales/' + termino;
       return this.http.get(url).subscribe( (respuesta: any) => {
-        this.obrasSociales = respuesta.agendacontactos;
+        this.obrasSociales = respuesta.obrassociales;
       }, (error: any) => {
         Swal.fire(
           'Error',

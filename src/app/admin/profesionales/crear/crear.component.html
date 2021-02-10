@@ -1,58 +1,54 @@
 <form [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
-  <div class="row">
-    <div class="col">
-      <label for="role">Nombre:</label>
-      <input
-        class="form-control"
-        type="text"
-        placeholder="Nombre"
-        formControlName="nombre"
-      />
-    </div>
-    <div class="col">
-      <label for="role">Email:</label>
-      <input
-        class="form-control"
-        type="email"
-        placeholder="Correo electrónico"
-        formControlName="email"
-      />
+  <div class="container">
+    <div class="row">
+      <div *ngFor="let form of formsQuestions" class="col-6">
+        <label> {{form.label}} </label>
+        <input
+          [class]="form.class"
+          [type]="form.text"
+          [placeholder]="form.label"
+          [formControlName]="form.formControlName"/>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col">
-      <label for="role">Role:</label>
-      <select
-        class="custom-select form-control form-control-lg"
-        id="role"
-        formControlName="role"
-      >
-        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-        <option value="USER_ROLE">USER_ROLE</option>
-        >
-      </select>
-    </div>
-    <div class="col">
-      <label for="role">Contraseña:</label>
-      <input
-        class="form-control"
-        type="password"
-        placeholder="Password"
-        formControlName="password"
-      />
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
-        Volver
-      </button>
-    </div>
-    <div class="col">
-      <button class="btn btn-primary w-100" type="submit">
-        Guardar
-      </button>
+  <div class="container text-center">
+    <h2>Horarios</h2>
+    <div class="row">
+      <div class="col" *ngFor="let a of formActividad">
+        <h4>{{a.dia}}</h4>
+        <label>{{a.actividad.label}}</label>
+        <input [class]="a.actividad.class" [type]="a.actividad.text" [placeholder]="a.actividad.label" [formControlName]="a.actividad.formControlName">
+        <div class="row">
+          <div class="col">
+            <label>Desde</label>
+            <select [class]="a.inicio.class" [formControlName]="a.inicio.formControlName">
+              <option value="" disabled>Hora</option>
+              <option *ngFor="let h of hora" [value]="h"> {{h}} </option>
+            </select>
+          </div>
+          <div class="col">
+            <label>Hasta</label>
+            <select [class]="a.final.class" [formControlName]="a.final.formControlName">
+              <option value="" disabled>Hora</option>
+              <option *ngFor="let h of hora" [value]="h"> {{h}} </option>
+            </select>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <button class="btn btn-danger w-100" type="button" routerLink="/admin/profesionales">
+          Volver
+        </button>
+      </div>
+      <div class="col">
+        <button class="btn btn-primary w-100" type="submit">
+          Guardar
+        </button>
+      </div>
+    </div>
+</div>
 </form>

@@ -1,42 +1,168 @@
-<form *ngIf="this.usuario" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
+<form *ngIf="this.institucion" [formGroup]="form" (ngSubmit)="guardarCambios()" class="animate__animated animate__fadeIn">
   <div class="row">
     <div class="col">
+      <label>Denominacion</label>
       <input
         class="form-control"
         type="text"
         placeholder="Nombre"
-        formControlName="nombre"
+        formControlName="denominacion"
       />
     </div>
     <div class="col">
+      <label>Email</label>
       <input
         class="form-control"
         type="email"
         placeholder="Correo electrónico"
-        formControlName="email"
+        formControlName="correo"
       />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <select class="form-control" formControlName="role">
-        <option value="ADMIN_ROLE">ADMIN_ROLE</option>
-        <option selected value="USER_ROLE">USER_ROLE</option>
-        >
-      </select>
-    </div>
-    <div class="col">
+      <label>Telefono</label>
       <input
         class="form-control"
-        type="password"
-        placeholder="Contraseña"
-        formControlName="password"
+        type="text"
+        placeholder="Telefono"
+        formControlName="telefono"
+      />
+    </div>
+    <div class="col">
+      <label>Celular</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Celular"
+        formControlName="celular"
       />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <button class="btn btn-danger w-100" type="button" routerLink="/admin/usuarios">
+      <label>Provincia</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Provincia"
+        formControlName="provincia"
+      />
+    </div>
+    <div class="col">
+      <label>Ciudad</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Ciudad"
+        formControlName="ciudad"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Codigo Postal</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Codigo Postal"
+        formControlName="codpos"
+      />
+    </div>
+    <div class="col">
+      <label>Direccion</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Direccion"
+        formControlName="direccion"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>CUIT</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="CUIT"
+        formControlName="cuit"
+      />
+    </div>
+    <div class="col">
+      <label>CI</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="CI"
+        formControlName="ci"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Ingresos Brutos</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Ingresos Brutos"
+        formControlName="ib"
+      />
+    </div>
+    <div class="col">
+      <label>Web</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Web"
+        formControlName="web"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <label>Contacto</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Contacto"
+        formControlName="contacto"
+      />
+    </div>
+    <div class="col">
+      <label>Celular del contacto</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Contacto Celular"
+        formControlName="contactocel"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <label>Email del contacto</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Email del contacto"
+        formControlName="contactocorreo"
+      />
+    </div>
+    <div class="col">
+      <label>Otros</label>
+      <input
+        class="form-control"
+        type="text"
+        placeholder="Otros"
+        formControlName="otros"
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button class="btn btn-danger w-100" type="button" routerLink="/admin/instituciones">
         Volver
       </button>
     </div>

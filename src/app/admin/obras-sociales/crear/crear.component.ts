@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from "../../../models/usuario.model";
 import Swal from 'sweetalert2'
+import { ObrasSocialesService } from 'src/app/services/obras-sociales.service';
 
 @Component({
   selector: 'app-crear',
@@ -12,37 +13,48 @@ import Swal from 'sweetalert2'
 export class CrearComponent {
   form: FormGroup;
   roles: any[] = ['ADMIN_ROLE', 'USER_ROLE']
-  constructor(public usuarioservice: UsuarioService) {
+  constructor(public usuarioservice: UsuarioService,
+    public obrassocialesservice: ObrasSocialesService) {
     this.form = new FormGroup({
-      nombre: new FormControl(),
-      email: new FormControl(),
-      role: new FormControl('USER_ROLE'),
-      password: new FormControl()
+      nombre: new FormControl(""),
+      correo: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      provincia: new FormControl(""),
+      ciudad: new FormControl(""),
+      direccion: new FormControl(""),
+      codpos: new FormControl(""),
+      contacto: new FormControl(""),
+      cuit: new FormControl(""),
+      ci: new FormControl(""),
+      ib: new FormControl(""),
+      otros: new FormControl(""),
     });
   }
 
   guardarCambios() {
-    this.crearUsuario(this.form.value);
+    this.agregarObraSocial(this.form.value);
   }
-  crearUsuario(usuario: Usuario) {
-    const user = usuario;
-    this.usuarioservice.crearUsuario(user).subscribe((respuesta: any) => {
+  agregarObraSocial(obraSocial: any) {
+    const user = obraSocial;
+    this.obrassocialesservice.agregar(user).subscribe((respuesta: any) => {
       Swal.fire(
         'Exito',
-        'El usuario de nombre ' + respuesta.usuario.nombre + ' se creo con exito',
+        'La obra social de nombre ' + respuesta.obrasocial.nombre + ' se creo con exito',
         'success'
       )
     }, (error: any) => {
+      console.log(error);
       if ( !error.error.message ) {
         Swal.fire(
           'Error',
-          error.error.error.errors.email.message,
+          error.error.error.error.errors.message,
           'error'
         )
       } else {
         Swal.fire(
           'Error',
-          error.error.message,
+          'error.error.message',
           'error'
         )
       }

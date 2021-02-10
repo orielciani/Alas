@@ -22,16 +22,17 @@ export class MainComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.cargarData();
+    this.admin = this.usuarioservice.admin;
   }
+  admin = false;
     cargando = true;
    desde = 0;
    totalRegistros = 0;
    efectores: any[] = [];
     cargarData() {
       this.efectoresservice.cargar(this.desde).subscribe((respuesta: any) => {
-        console.log(respuesta);
         this.efectores = respuesta.efectoressalud;
-        this.totalRegistros = respuesta.efectoressalud.length;
+        this.totalRegistros = respuesta.conteo;
         this.cargando = false;
       });
     }
@@ -40,9 +41,9 @@ export class MainComponent implements OnInit {
         this.cargarData();
         return;
       }
-      let url = SERVER_URL + 'busqueda/db/agendacontactos/' + termino;
+      let url = SERVER_URL + 'busqueda/db/efectoressalud/' + termino;
       return this.http.get(url).subscribe( (respuesta: any) => {
-        this.efectores = respuesta.agendacontactos;
+        this.efectores = respuesta.efectoressalud;
       }, (error: any) => {
         Swal.fire(
           'Error',
@@ -83,7 +84,7 @@ export class MainComponent implements OnInit {
             'success'
           );
           let entero =  ((this.totalRegistros - 1) / 5);
-          if ( Number.isInteger(entero) === true ) {
+          if ( Number.isInteger(entero) === true && this.totalRegistros !== 1) {
             this.cambiarDesde(-5);
           } else {
             this.cargarData();

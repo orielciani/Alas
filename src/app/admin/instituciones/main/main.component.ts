@@ -21,14 +21,15 @@ export class MainComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.cargarData();
+    this.admin = this.usuarioservice.admin;
   }
+  admin = false;
     cargando = true;
    desde = 0;
    totalRegistros = 0;
    instituciones: any[] = [];
     cargarData() {
       this.institucionesservice.cargar(this.desde).subscribe((respuesta: any) => {
-        console.log(respuesta);
         this.instituciones = respuesta.instituciones;
         this.totalRegistros = respuesta.conteo;
         this.cargando = false;
@@ -41,7 +42,7 @@ export class MainComponent implements OnInit {
       }
       let url = SERVER_URL + 'busqueda/db/instituciones/' + termino;
       return this.http.get(url).subscribe( (respuesta: any) => {
-        this.instituciones = respuesta.agendacontactos;
+        this.instituciones = respuesta.instituciones;
       }, (error: any) => {
         Swal.fire(
           'Error',

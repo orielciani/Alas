@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Usuario } from "../../../models/usuario.model";
 import { ActivatedRoute } from "@angular/router";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2'
+import { ObrasSocialesService } from 'src/app/services/obras-sociales.service';
+import { ContactosService } from 'src/app/services/contactos.service';
 
 @Component({
   selector: 'app-editar',
@@ -12,33 +13,60 @@ import Swal from 'sweetalert2'
 })
 export class EditarComponent implements OnInit {
   form: FormGroup;
-  usuario!: Usuario;
+  obraSocial: any;
   id = "";
   constructor(
     public usuarioservice: UsuarioService,
+    public obrasocialservice: ObrasSocialesService,
     public activatedroute: ActivatedRoute
   ) {
     this.form = new FormGroup({
       nombre: new FormControl(""),
-      email: new FormControl(""),
-      role: new FormControl(""),
-      password: new FormControl()
+      correo: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      provincia: new FormControl(""),
+      ciudad: new FormControl(""),
+      direccion: new FormControl(""),
+      codpos: new FormControl(""),
+      contacto: new FormControl(""),
+      cuit: new FormControl(""),
+      ci: new FormControl(""),
+      ib: new FormControl(""),
+      otros: new FormControl(""),
     });
   }
   ngOnInit(): void {
     this.id = this.activatedroute.snapshot.params['id'];
-    this.usuarioservice.cargarUsuario(this.id).subscribe((respuesta: any) => {
-      this.usuario = respuesta.usuario;
-      this.setValue(respuesta.usuario.nombre, respuesta.usuario.email, respuesta.usuario.role, null);
+    this.obrasocialservice.cargarUno(this.id).subscribe((respuesta: any) => {
+      this.obraSocial = respuesta.obrasocial;
+      this.setValue(respuesta.obrasocial.nombre, respuesta.obrasocial.correo,
+         respuesta.obrasocial.telefono, respuesta.obrasocial.celular,
+         respuesta.obrasocial.provincia, respuesta.obrasocial.ciudad,
+         respuesta.obrasocial.direccion,
+         respuesta.obrasocial.codpos, respuesta.obrasocial.contacto,
+         respuesta.obrasocial.cuit, respuesta.obrasocial.ci,
+         respuesta.obrasocial.ib, respuesta.obrasocial.otros);
     });
   }
 
-  setValue(nombre: string, email: string, role: string, password: string | null) {
+  setValue(nombre: string, correo: string, telefono: string, celular: string,
+    provincia: string, ciudad: string, direccion: string, codpos: string,
+    contacto: string, cuit: string, ci: string, ib: string, otros: string) {
     let user = {
       nombre: nombre,
-      email: email,
-      role: role,
-      password: password
+      correo: correo,
+      telefono: telefono,
+      celular: celular,
+      provincia: provincia,
+      ciudad: ciudad,
+      direccion: direccion,
+      codpos: codpos,
+      contacto: contacto,
+      cuit: cuit,
+      ci: ci,
+      ib: ib,
+      otros: otros
     };
     this.form.setValue(user);
   }
@@ -54,12 +82,12 @@ export class EditarComponent implements OnInit {
       confirmButtonText: 'Si, modificar'
     }).then((result) => {
       if (result.isConfirmed) {
-          this.editarUsuario(this.form.value);
+          this.editar(this.form.value);
       }
     })
   }
-  editarUsuario(usuario: Usuario) {
-    this.usuarioservice.editarUsuario(this.id, usuario).subscribe((respuesta: any) => {
+  editar(obraSocial: any) {
+    this.obrasocialservice.editar(this.id, obraSocial).subscribe((respuesta: any) => {
       Swal.fire(
         'Modificado',
         '',

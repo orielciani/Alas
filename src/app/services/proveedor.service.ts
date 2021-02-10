@@ -13,12 +13,12 @@ export class ProveedorService {
 token: string = this.usuarioservice.token;
 // Cargar proveedores
 cargarProveedores(desde: number = 0) {
-  let url = SERVER_URL + 'proveedores?desde=' + desde
+  let url = SERVER_URL + 'proveedores?desde=' + desde+ '?token=' + this.token;
   return this.http.get(url);
 }
 // Cargar proveedor
 cargarProveedor(id: string) {
-  let url = SERVER_URL + 'proveedores/proveedor/' + id;
+  let url = SERVER_URL + 'proveedores/proveedor/' + id+ '?token=' + this.token;;
   return this.http.get(url);
 }
 // Crear proveedor

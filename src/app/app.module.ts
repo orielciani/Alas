@@ -9,6 +9,8 @@ import { MainModule } from './main/main.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PipesModule } from './pipes/pipes.module';
+
 
 
 
@@ -24,7 +26,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MainModule,
     AdminModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

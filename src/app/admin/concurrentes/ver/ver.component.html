@@ -140,5 +140,152 @@
     </div>
 
   </div>
+  <div class="container-fluid">
+    <h3>Transporte</h3>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Nombre</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.nombretransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Vinculo</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.contactotransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Dni</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.cuittransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Responsable</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.direcciontransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Fecha de nacimiento</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.ibtransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Estado Civil</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.situaciontransporte}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Telefono</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.telefonofamiliar}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Celular</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.celularfamiliar}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-primary font-weight-bold">Email</div>
+      <div class="col-10 bg-primary">{{concurrente.transporte.correofamiliar}}</div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <h3>Asistente Terapeutico</h3>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Nombre</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.nombreasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Vinculo</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.contactoasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Dni</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.cuitasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Responsable</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.direccionasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Fecha de nacimiento</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.ibasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Estado Civil</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.situacionasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Telefono</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.telefonoasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Celular</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.celularasistente}}</div>
+    </div>
+    <div class="row">
+      <div class="col bg-secondary text-white font-weight-bold">Email</div>
+      <div class="col-10 bg-secondary text-white">{{concurrente.asistenteterapeutico.correoasistente}}</div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <h2>Horario de asistencia</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Jornada</th>
+          <th scope="col">Lunes</th>
+          <th scope="col">Martes</th>
+          <th scope="col">Miercoles</th>
+          <th scope="col">Jueves</th>
+          <th scope="col">Viernes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mañana</th>
+          <td>{{concurrente.asistencia.mananalunes}}</td>
+          <td>{{concurrente.asistencia.mananamartes}}</td>
+          <td>{{concurrente.asistencia.mananamiercoles}}</td>
+          <td>{{concurrente.asistencia.mananajueves}}</td>
+          <td>{{concurrente.asistencia.mananaviernes}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Tarde</th>
+          <td>{{concurrente.asistencia.tardelunes}}</td>
+          <td>{{concurrente.asistencia.tardemartes}}</td>
+          <td>{{concurrente.asistencia.tardemiercoles}}</td>
+          <td>{{concurrente.asistencia.tardejueves}}</td>
+          <td>{{concurrente.asistencia.tardeviernes}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <h4>Horario Taller</h4>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Jornada</th>
+          <th scope="col">Lunes</th>
+          <th scope="col">Martes</th>
+          <th scope="col">Miercoles</th>
+          <th scope="col">Jueves</th>
+          <th scope="col">Viernes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mañana</th>
+          <td>{{concurrente.taller.tmananalunes}}</td>
+          <td>{{concurrente.taller.tmananamartes}}</td>
+          <td>{{concurrente.taller.tmananamiercoles}}</td>
+          <td>{{concurrente.taller.tmananajueves}}</td>
+          <td>{{concurrente.taller.tmananaviernes}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Tarde</th>
+          <td>{{concurrente.taller.ttardelunes}}</td>
+          <td>{{concurrente.taller.ttardemartes}}</td>
+          <td>{{concurrente.taller.ttardemiercoles}}</td>
+          <td>{{concurrente.taller.ttardejueves}}</td>
+          <td>{{concurrente.taller.ttardeviernes}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+
   <button class="btn btn-danger w-100" routerLink="/admin/concurrentes">Volver</button>
 </div>

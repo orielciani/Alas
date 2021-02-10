@@ -57,7 +57,6 @@ export class UsuarioService{
   cargarStorage() {
     if (!localStorage.getItem("token")) {
       this.router.navigate(["/login"]);
-      console.log(this.token);
       return;
     }
     if (!localStorage.getItem("usuario")) {
@@ -82,7 +81,16 @@ export class UsuarioService{
   }
   renuevaToken() {
     let url = SERVER_URL + "login/renuevatoken?token=" + this.token;
-    return this.http.get(url)
+    return this.http.get(url).pipe(map((respuesta: any) => {
+      this.token = respuesta.token;
+      localStorage.setItem('token', this.token);
+      return true;
+    }, (err: any) => {
+      console.log(err);
+      return false;
+    }))
+
+
   }
   // TOMAR TODOS LOS USUARIOS
     cargarUsuarios(desde: number = 0) {

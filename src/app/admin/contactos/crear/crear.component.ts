@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { Usuario } from "../../../models/usuario.model";
 import Swal from 'sweetalert2'
+import { ContactosService } from 'src/app/services/contactos.service';
 
 @Component({
   selector: 'app-crear',
@@ -11,32 +12,72 @@ import Swal from 'sweetalert2'
 })
 export class CrearComponent {
   form: FormGroup;
-  roles: any[] = ['ADMIN_ROLE', 'USER_ROLE']
-  constructor(public usuarioservice: UsuarioService) {
+  constructor(public usuarioservice: UsuarioService,
+    public contactoservice: ContactosService) {
     this.form = new FormGroup({
-      nombre: new FormControl(),
-      email: new FormControl(),
-      role: new FormControl('USER_ROLE'),
-      password: new FormControl()
+      nombre: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      correo: new FormControl(""),
+      horario: new FormControl(""),
+      institucion: new FormControl(""),
     });
   }
+  formsQuestions: any = [ {
+      label: 'Nombre',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "nombre"
+    },
+    {
+      label: 'Telefono',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "telefono"
+    },
+    {
+      label: 'Celular',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "celular"
+    },
+    {
+      label: 'Email',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "correo"
+    },
+    {
+      label: 'Institucion',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "institucion"
+    },
+    {
+      label: 'Horario',
+      class: 'form-control',
+      type: 'text',
+      formControlName: "horario"
+    },
+   ]
 
   guardarCambios() {
     this.crearUsuario(this.form.value);
   }
-  crearUsuario(usuario: Usuario) {
-    const user = usuario;
-    this.usuarioservice.crearUsuario(user).subscribe((respuesta: any) => {
+  crearUsuario(contacto: any) {
+    const user = contacto;
+    this.contactoservice.agregar(user).subscribe((respuesta: any) => {
       Swal.fire(
         'Exito',
-        'El usuario de nombre ' + respuesta.usuario.nombre + ' se creo con exito',
+        'El efector de salud de nombre ' + respuesta.contacto.nombre + ' se agrego con exito',
         'success'
       )
     }, (error: any) => {
+      console.log(error);
       if ( !error.error.message ) {
         Swal.fire(
           'Error',
-          error.error.error.errors.email.message,
+          'Error',
           'error'
         )
       } else {

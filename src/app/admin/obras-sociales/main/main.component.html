@@ -1,7 +1,7 @@
 <div class="container-fluid animate__animated animate__fadeIn">
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title">Buscar concurrentes</h5>
+      <h5 class="card-title">Buscar obras sociales</h5>
       <input class="form-control" (keyup)="buscar(termino.value)" type="search" placeholder="Nombre, dni, localidad" #termino>
     </div>
   </div>
@@ -12,10 +12,10 @@
     </div>
   </div>
       <p class="bg-info text-center">
-        Total de usuarios: {{totalRegistros}}
+        Total de obras sociales: {{totalRegistros}}
       </p>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-primary e-md-2" routerLink="crear">Crear Usuario nuevo</a>
+        <a *ngIf="admin" class="btn btn-primary e-md-2" routerLink="crear">Crear Obra Social nueva</a>
 
       </div>
   <table class="table" *ngIf="!cargando">
@@ -35,8 +35,8 @@
         <td class="text-right"  width="20%">{{usuario.role}}</td>
         <td width="15%" class="text-right">
             <a class="btn botones btn-success" [routerLink]="['ver/' + (usuario._id || '')]"><i class="far fa-eye"></i></a>
-            <a class="btn botones btn-primary" [routerLink]="['editar/' + (usuario._id || '')]"><i class="fas fa-pencil-alt"></i></a>
-            <button class="btn botones btn-danger" (click)="eliminar(usuario)"><i class="fas fa-times-circle"></i></button>
+            <a *ngIf="admin" class="btn botones btn-primary" [routerLink]="['editar/' + (usuario._id || '')]"><i class="fas fa-pencil-alt"></i></a>
+            <button *ngIf="admin" class="btn botones btn-danger" (click)="eliminar(usuario)"><i class="fas fa-times-circle"></i></button>
       </td>
       </tr>
     </tbody>

@@ -4,6 +4,7 @@ import { Usuario } from "../../../models/usuario.model";
 import { ActivatedRoute } from "@angular/router";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2'
+import { EfectoresService } from 'src/app/services/efectores.service';
 
 @Component({
   selector: 'app-editar',
@@ -12,33 +13,44 @@ import Swal from 'sweetalert2'
 })
 export class EditarComponent implements OnInit {
   form: FormGroup;
-  usuario!: Usuario;
+  efector: any;
   id = "";
   constructor(
     public usuarioservice: UsuarioService,
+    public efectoresservice: EfectoresService,
     public activatedroute: ActivatedRoute
   ) {
     this.form = new FormGroup({
       nombre: new FormControl(""),
       email: new FormControl(""),
-      role: new FormControl(""),
-      password: new FormControl()
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      direccion: new FormControl(""),
+      distrito: new FormControl(""),
+      observacion: new FormControl(""),
     });
   }
   ngOnInit(): void {
     this.id = this.activatedroute.snapshot.params['id'];
-    this.usuarioservice.cargarUsuario(this.id).subscribe((respuesta: any) => {
-      this.usuario = respuesta.usuario;
-      this.setValue(respuesta.usuario.nombre, respuesta.usuario.email, respuesta.usuario.role, null);
+    this.efectoresservice.cargarUno(this.id).subscribe((respuesta: any) => {
+      this.efector = respuesta.efectorsalud;
+      this.setValue(respuesta.efectorsalud.nombre, respuesta.efectorsalud.correo,
+         respuesta.efectorsalud.telefono, respuesta.efectorsalud.celular,
+         respuesta.efectorsalud.direccion, respuesta.efectorsalud.distrito,
+         respuesta.efectorsalud.observacion);
     });
   }
 
-  setValue(nombre: string, email: string, role: string, password: string | null) {
+  setValue(nombre: string, email: string, telefono: string, celular: string,
+    direccion: string, distrito: string, observacion: string) {
     let user = {
       nombre: nombre,
       email: email,
-      role: role,
-      password: password
+      telefono: telefono,
+      celular: celular,
+      direccion: direccion,
+      distrito: distrito,
+      observacion: observacion
     };
     this.form.setValue(user);
   }
@@ -58,8 +70,8 @@ export class EditarComponent implements OnInit {
       }
     })
   }
-  editarUsuario(usuario: Usuario) {
-    this.usuarioservice.editarUsuario(this.id, usuario).subscribe((respuesta: any) => {
+  editarUsuario(efector: any) {
+    this.efectoresservice.editar(this.id, efector).subscribe((respuesta: any) => {
       Swal.fire(
         'Modificado',
         '',

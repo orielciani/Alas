@@ -7,6 +7,7 @@ import { UsuariosComponent } from './usuarios.component';
 import { MainComponent } from './main/main.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CrearComponent } from './crear/crear.component';
+import { PipesModule } from 'src/app/pipes/pipes.module';
 
 
 
@@ -15,7 +16,8 @@ import { CrearComponent } from './crear/crear.component';
   imports: [
     CommonModule,
     UsuariosPages,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class UsuariosModule { }

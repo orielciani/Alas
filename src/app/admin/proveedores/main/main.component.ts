@@ -4,6 +4,8 @@ import { Usuario } from 'src/app/models/usuario.model';
 import Swal from 'sweetalert2'
 import { ProveedorService } from 'src/app/services/proveedor.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { HttpClient } from '@angular/common/http';
+import { SERVER_URL } from 'src/app/config/config';
 
 @Component({
   selector: 'app-main',
@@ -19,13 +21,13 @@ export class MainComponent implements OnInit {
   titulo: string = 'Proveedores';
   data: string = 'proveedores'
   dataSingular: string = 'proveedor'
-  buscar: string = 'Buscar ' + this.titulo;
   registros: string = 'Total de ' + this.data + ': ';
   botonCrear = 'Crear ' + this.dataSingular + ' nuevo'
   constructor(
     public proveedorservice: ProveedorService,
     public router: Router,
-    public usuarioservice: UsuarioService
+    public usuarioservice: UsuarioService,
+    public http: HttpClient
   ) { }
   ngOnInit(): void {
     this.cargarData();
@@ -34,9 +36,26 @@ export class MainComponent implements OnInit {
     cargarData() {
       this.proveedorservice.cargarProveedores(this.desde).subscribe((respuesta: any) => {
         this.proveedores = respuesta.proveedores;
-        this.totalRegistros = respuesta.proveedores.length;
+        this.totalRegistros = respuesta.conteo;
         this.cargando = true;
       });
+    }
+    buscar(termino: string) {
+      if  ( termino === '' ) {
+        this.cargarData();
+        return;
+      }
+      let url = SERVER_URL + 'busqueda/db/proveedores/' + termino;
+      return this.http.get(url).subscribe( (respuesta: any) => {
+        this.proveedores = respuesta.proveedores;
+      }, (error: any) => {
+        Swal.fire(
+          'Error',
+          'Error inesperado',
+          'error'
+        )
+      } )
+      ;
     }
   cambiarDesde( valor: number ){
     let desde = this.desde + valor;

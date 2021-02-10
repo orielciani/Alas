@@ -22,24 +22,23 @@ export class VerComponent implements OnInit {
   ngOnInit(): void {
     const id = this.activatedroute.snapshot.params['id'];
     this.profesionalesservice.cargarUno(id).subscribe((respuesta: any) => {
-      console.log(respuesta);
       this.profesional = respuesta.profesional;
-      if ( this.profesional.asistencia[0].lunes[0].inicioLunes > 0 ) {
-        this.lunesHoras = (this.profesional.asistencia[0].lunes[0].finalLunes - this.profesional.asistencia[0].lunes[0].inicioLunes)
+      if ( this.profesional.inicioLunes >= 0) {
+        this.lunesHoras = (this.profesional.finalLunes - this.profesional.inicioLunes)
       }
-      if ( this.profesional.asistencia[0].martes[0].inicioMartes > 0 ) {
-        this.martesHoras = (this.profesional.asistencia[0].martes[0].finalMartes - this.profesional.asistencia[0].martes[0].inicioMartes)
+      if ( this.profesional.inicioMartes >= 0) {
+        this.martesHoras = (this.profesional.finalMartes - this.profesional.inicioMartes)
       }
-      if ( this.profesional.asistencia[0].miercoles[0].inicioMiercoles > 0 ) {
-        this.miercolesHoras = (this.profesional.asistencia[0].miercoles[0].finalMiercoles - this.profesional.asistencia[0].miercoles[0].inicioMiercoles)
+      if ( this.profesional.inicioMiercoles >= 0) {
+        this.miercolesHoras = (this.profesional.finalMiercoles - this.profesional.inicioMiercoles)
       }
-      if ( this.profesional.asistencia[0].jueves[0].inicioJueves > 0 ) {
-        this.juevesHoras = (this.profesional.asistencia[0].jueves[0].finalJueves - this.profesional.asistencia[0].jueves[0].inicioJueves)
+      if ( this.profesional.inicioJueves >= 0) {
+        this.juevesHoras = (this.profesional.finalJueves - this.profesional.inicioJueves)
       }
-      if ( this.profesional.asistencia[0].viernes[0].inicioviernes > 0 ) {
-        this.viernesHoras = (this.profesional.asistencia[0].viernes[0].finalViernes - this.profesional.asistencia[0].viernes[0].inicioViernes)
+      if ( this.profesional.inicioViernes >= 0) {
+        this.viernesHoras = (this.profesional.finalViernes - this.profesional.inicioViernes)
       }
-      this.totalHorasSemanales = this.lunesHoras + this.martesHoras + this.miercolesHoras + this.juevesHoras + this.viernesHoras;
+      this.totalHorasSemanales = this.lunesHoras + this.martesHoras + this.miercolesHoras + this.juevesHoras + this.viernesHoras
     }, (error: any ) => {
       console.log(error);
       Swal.fire(

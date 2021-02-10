@@ -35,7 +35,6 @@ export class BusquedaComponent implements OnInit {
   buscar( termino: string ) {
     let url = SERVER_URL + 'busqueda/todo/' + termino;
     this.http.get(url).subscribe((respuesta: any) => {
-      console.log(respuesta);
       this.usuarios = respuesta.usuarios;
       this.concurrentes = respuesta.concurrentes;
       this.contactos = respuesta.contactos;

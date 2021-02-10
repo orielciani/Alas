@@ -4,6 +4,7 @@ import { Usuario } from "../../../models/usuario.model";
 import { ActivatedRoute } from "@angular/router";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2'
+import { ContactosService } from 'src/app/services/contactos.service';
 
 @Component({
   selector: 'app-editar',
@@ -12,33 +13,38 @@ import Swal from 'sweetalert2'
 })
 export class EditarComponent implements OnInit {
   form: FormGroup;
-  usuario!: Usuario;
+  contacto: any;
   id = "";
   constructor(
     public usuarioservice: UsuarioService,
+    public contactosservice: ContactosService,
     public activatedroute: ActivatedRoute
   ) {
     this.form = new FormGroup({
       nombre: new FormControl(""),
-      email: new FormControl(""),
-      role: new FormControl(""),
-      password: new FormControl()
+      correo: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      institucion: new FormControl("")
     });
   }
   ngOnInit(): void {
     this.id = this.activatedroute.snapshot.params['id'];
-    this.usuarioservice.cargarUsuario(this.id).subscribe((respuesta: any) => {
-      this.usuario = respuesta.usuario;
-      this.setValue(respuesta.usuario.nombre, respuesta.usuario.email, respuesta.usuario.role, null);
+    this.contactosservice.cargarUno(this.id).subscribe((respuesta: any) => {
+      this.contacto = respuesta.contacto;
+      this.setValue(respuesta.contacto.nombre, respuesta.contacto.correo,
+         respuesta.contacto.telefono, respuesta.contacto.celular,
+         respuesta.contacto.institucion);
     });
   }
 
-  setValue(nombre: string, email: string, role: string, password: string | null) {
+  setValue(nombre: string, correo: string, telefono: string, celular: string , institucion: string) {
     let user = {
       nombre: nombre,
-      email: email,
-      role: role,
-      password: password
+      correo: correo,
+      telefono: telefono,
+      celular: celular,
+      institucion: institucion
     };
     this.form.setValue(user);
   }
@@ -58,8 +64,8 @@ export class EditarComponent implements OnInit {
       }
     })
   }
-  editarUsuario(usuario: Usuario) {
-    this.usuarioservice.editarUsuario(this.id, usuario).subscribe((respuesta: any) => {
+  editarUsuario(contacto: any) {
+    this.contactosservice.editar(this.id, contacto).subscribe((respuesta: any) => {
       Swal.fire(
         'Modificado',
         '',

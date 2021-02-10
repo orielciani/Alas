@@ -4,6 +4,7 @@ import { Usuario } from "../../../models/usuario.model";
 import { ActivatedRoute } from "@angular/router";
 import { UsuarioService } from 'src/app/services/usuario.service';
 import Swal from 'sweetalert2'
+import { InstitucionesService } from 'src/app/services/instituciones.service';
 
 @Component({
   selector: 'app-editar',
@@ -12,33 +13,68 @@ import Swal from 'sweetalert2'
 })
 export class EditarComponent implements OnInit {
   form: FormGroup;
-  usuario!: Usuario;
+  institucion: any;
   id = "";
   constructor(
     public usuarioservice: UsuarioService,
+    public institucionesservice: InstitucionesService,
     public activatedroute: ActivatedRoute
   ) {
     this.form = new FormGroup({
-      nombre: new FormControl(""),
-      email: new FormControl(""),
-      role: new FormControl(""),
-      password: new FormControl()
+      denominacion: new FormControl(""),
+      correo: new FormControl(""),
+      telefono: new FormControl(""),
+      celular: new FormControl(""),
+      provincia: new FormControl(""),
+      ciudad: new FormControl(""),
+      codpos: new FormControl(""),
+      direccion: new FormControl(""),
+      cuit: new FormControl(""),
+      ci: new FormControl(""),
+      ib: new FormControl(""),
+      otros: new FormControl(""),
+      web: new FormControl(""),
+      contacto: new FormControl(""),
+      contactocel: new FormControl(""),
+      contactocorreo: new FormControl(""),
     });
   }
   ngOnInit(): void {
     this.id = this.activatedroute.snapshot.params['id'];
-    this.usuarioservice.cargarUsuario(this.id).subscribe((respuesta: any) => {
-      this.usuario = respuesta.usuario;
-      this.setValue(respuesta.usuario.nombre, respuesta.usuario.email, respuesta.usuario.role, null);
+    this.institucionesservice.cargarUno(this.id).subscribe((respuesta: any) => {
+      this.institucion = respuesta.institucion;
+      this.setValue(respuesta.institucion.denominacion || '', respuesta.institucion.correo || '',
+         respuesta.institucion.telefono || '', respuesta.institucion.celular || '',
+         respuesta.institucion.provincia || '', respuesta.institucion.ciudad || '',
+         respuesta.institucion.codpos || '', respuesta.institucion.direccion || '',
+         respuesta.institucion.cuit || '', respuesta.institucion.ci || '',
+         respuesta.institucion.ib, respuesta.institucion.otros || '',
+         respuesta.institucion.web || '', respuesta.institucion.contacto || '',
+         respuesta.institucion.contactocel || '', respuesta.institucion.contactocorreo || '');
     });
   }
 
-  setValue(nombre: string, email: string, role: string, password: string | null) {
+  setValue(denominacion: string, correo: string, telefono: string, celular: string,
+    provincia: string, ciudad: string, codpos: string, direccion: string,
+    cuit: string, ci: string, ib: string, otros: string, web: string,
+    contacto: string, contactocel: string, contactocorreo: string) {
     let user = {
-      nombre: nombre,
-      email: email,
-      role: role,
-      password: password
+      denominacion: denominacion,
+      correo: correo,
+      telefono: telefono,
+      celular: celular,
+      provincia: provincia,
+      ciudad: ciudad,
+      codpos: codpos,
+      direccion: direccion,
+      cuit: cuit,
+      ci: ci,
+      ib: ib,
+      otros: otros,
+      web: web,
+      contacto: contacto,
+      contactocel: contactocel,
+      contactocorreo: contactocorreo
     };
     this.form.setValue(user);
   }
@@ -59,7 +95,7 @@ export class EditarComponent implements OnInit {
     })
   }
   editarUsuario(usuario: Usuario) {
-    this.usuarioservice.editarUsuario(this.id, usuario).subscribe((respuesta: any) => {
+    this.institucionesservice.editar(this.id, usuario).subscribe((respuesta: any) => {
       Swal.fire(
         'Modificado',
         '',
